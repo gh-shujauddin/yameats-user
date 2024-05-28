@@ -797,15 +797,15 @@ export const schema = {
                     "isRequired": true,
                     "attributes": []
                 },
-                "minDeliveryFee": {
-                    "name": "minDeliveryFee",
+                "minDeliveryTime": {
+                    "name": "minDeliveryTime",
                     "isArray": false,
                     "type": "Int",
                     "isRequired": true,
                     "attributes": []
                 },
-                "maxDeliveryFee": {
-                    "name": "maxDeliveryFee",
+                "maxDeliveryTime": {
+                    "name": "maxDeliveryTime",
                     "isArray": false,
                     "type": "Int",
                     "isRequired": true,
@@ -887,6 +887,13 @@ export const schema = {
                         ]
                     }
                 },
+                "adminSub": {
+                    "name": "adminSub",
+                    "isArray": false,
+                    "type": "String",
+                    "isRequired": true,
+                    "attributes": []
+                },
                 "createdAt": {
                     "name": "createdAt",
                     "isArray": false,
@@ -944,6 +951,7 @@ export const schema = {
                 "NEW",
                 "COOKING",
                 "READY_FOR_PICKUP",
+                "ACCEPTED",
                 "PICKED_UP",
                 "COMPLETED"
             ]
@@ -951,5 +959,5 @@ export const schema = {
     },
     "nonModels": {},
     "codegenVersion": "3.4.4",
-    "version": "63d87e11bb6283a422d23ca5b9fd6c6b"
+    "version": "baa0235de600bae2a7d36fdfc8f709a3"
 };

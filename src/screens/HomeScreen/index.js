@@ -11,6 +11,7 @@ export default function HomeScreen() {
     // fetching restaurant items and storing as state
     try {
       DataStore.query(Restaurant).then(setRestaurant);
+      console.log(restaurants);
     } catch (e) {
       console.log("Error fetching restaurant: ", e);
     }

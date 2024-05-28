@@ -31,7 +31,6 @@ const OrderContextProvider = ({ children }) => {
       await Promise.all(
         basketDish.map(async (currBasketDish) => {
           const dish = await getDish(currBasketDish.basketDishDishId);
-          console.log(dish);
           return DataStore.save(
             new OrderDish({
               quantity: currBasketDish.quantity,
@@ -45,6 +44,7 @@ const OrderContextProvider = ({ children }) => {
       await DataStore.delete(basket);
       // console.log(orders);
       setOrders([...orders, newOrder]);
+      return newOrder;
     } catch (e) {
       console.log("Error creating order: ", e);
     }
@@ -58,12 +58,26 @@ const OrderContextProvider = ({ children }) => {
     return { ...order, dishes: orderDishes };
   };
 
+  const fetchOrders = async () => {
+    if (!dbUser) return;
+    try {
+      const orderQuery = await DataStore.query(Order, (o) =>
+        o.userID.eq(dbUser.id)
+      );
+      setOrders(orderQuery);
+    } catch (e) {
+      console.log("Error fetcing Orders: ", e);
+    }
+  };
+
   useEffect(() => {
-    DataStore.query(Order, (o) => o.userID.eq(dbUser.id)).then(setOrders);
+    fetchOrders();
   }, []);
 
   return (
-    <OrderContext.Provider value={{ createOrder, orders, getOrderById }}>
+    <OrderContext.Provider
+      value={{ createOrder, orders, getOrderById, fetchOrders }}
+    >
       {children}
     </OrderContext.Provider>
   );

@@ -10,10 +10,13 @@ const Basket = () => {
   const { restaurant, basketDish, priceTotal } = useBasketContext();
   const { createOrder } = useOrderContext();
   const onCreateOrder = async () => {
-    await createOrder();
-    navigation.goBack();
+    const newOrder = await createOrder();
+    navigation.navigate("OrdersTab", {
+      screen: "Order",
+      params: { id: newOrder.id },
+    });
   };
-  
+
   return (
     <View style={styles.page}>
       <Text style={styles.name}>{restaurant?.name}</Text>

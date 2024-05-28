@@ -9,6 +9,7 @@ const AuthContext = createContext({});
 const AuthContextProvider = ({ children }) => {
   const [authUser, setAuthUser] = useState(null);
   const [dbUser, setDbUser] = useState(null);
+  const [loading, setLoading] = useState();
   const sub = authUser?.userId;
   // const sub = "51bb6570-6041-70cb-92b0-9bddc89f8b60";
 
@@ -18,9 +19,10 @@ const AuthContextProvider = ({ children }) => {
 
   useEffect(() => {
     try {
-      DataStore.query(User, (user) => user.sub.eq(sub)).then((users) =>
-        setDbUser(users[0])
-      );
+      DataStore.query(User, (user) => user.sub.eq(sub)).then((users) => {
+        setDbUser(users[0]);
+        setLoading(false);
+      });
     } catch (e) {
       console.log("Error fetching user: ", e);
     }

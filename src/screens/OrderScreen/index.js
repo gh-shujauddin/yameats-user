@@ -1,9 +1,15 @@
 import { StyleSheet, Text, View, FlatList } from "react-native";
 import OrderListItem from "../../components/OrderListItem";
 import { useOrderContext } from "../../contexts/OrderContext";
+import { useEffect } from "react";
 
 const OrderScreen = () => {
-  const { orders } = useOrderContext();
+  const { orders, fetchOrders } = useOrderContext();
+
+  useEffect(() => {
+    fetchOrders();
+  }, []);
+
   if (orders[0] == null) {
     return (
       <View style={{ flex: 1 }}>

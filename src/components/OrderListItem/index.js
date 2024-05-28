@@ -19,19 +19,17 @@ const OrderListItem = ({ order }) => {
     DataStore.query(Restaurant, (res) => res.id.eq(order.restaurantID)).then(
       (rest) => setRestaurant(rest[0])
     );
-    console.log("restaurant", order);
   }, []);
 
+  const onPress = () => {
+    navigator.navigate("Order", { id: order.id });
+  };
   if (!restaurant) {
     return <ActivityIndicator />;
   }
 
   return (
-    <Pressable
-      onPress={() => navigator.navigate("Order", { id: order.id })}
-      style={styles.page}
-    >
-      {console.log("res", order)}
+    <Pressable onPress={onPress} style={styles.page}>
       {restaurant && (
         <Image source={{ uri: restaurant.image }} style={styles.image} />
       )}

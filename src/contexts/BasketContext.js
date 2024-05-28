@@ -40,10 +40,15 @@ const BasketContextProvider = ({ children }) => {
   }, [basketDish, restaurant]);
 
   useEffect(() => {
-    DataStore.query(Basket, (b) =>
-      b.and((c) => [c.restaurantID.eq(restaurant.id), c.userID.eq(dbUser.id)])
-    ).then((baskets) => setBasket(baskets[0]));
-  }, [dbUser, restaurant]);
+    if (!dbUser || !restaurant) return;
+    try {
+      DataStore.query(Basket, (b) =>
+        b.and((c) => [c.restaurantID.eq(restaurant.id), c.userID.eq(dbUser.id)])
+      ).then((baskets) => setBasket(baskets[0]));
+    } catch (e) {
+      console.log("Error querying restaurant and basket: ", e);
+    }
+  }, [restaurant]);
 
   useEffect(() => {
     if (basket) {
@@ -52,6 +57,7 @@ const BasketContextProvider = ({ children }) => {
       );
     }
   }, [basket]);
+
   const createNewBasket = async () => {
     const newBasket = await DataStore.save(
       new Basket({ userID: dbUser.id, restaurantID: restaurant.id })

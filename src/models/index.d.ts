@@ -11,6 +11,7 @@ export enum OrderStatus {
   NEW = "NEW",
   COOKING = "COOKING",
   READY_FOR_PICKUP = "READY_FOR_PICKUP",
+  ACCEPTED = "ACCEPTED",
   PICKED_UP = "PICKED_UP",
   COMPLETED = "COMPLETED"
 }
@@ -278,8 +279,8 @@ type EagerRestaurant = {
   readonly name: string;
   readonly image: string;
   readonly deliveryFee: number;
-  readonly minDeliveryFee: number;
-  readonly maxDeliveryFee: number;
+  readonly minDeliveryTime: number;
+  readonly maxDeliveryTime: number;
   readonly rating?: number | null;
   readonly address: string;
   readonly lat: number;
@@ -287,6 +288,7 @@ type EagerRestaurant = {
   readonly Dishes?: (Dish | null)[] | null;
   readonly Baskets?: (Basket | null)[] | null;
   readonly Orders?: (Order | null)[] | null;
+  readonly adminSub: string;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }
@@ -300,8 +302,8 @@ type LazyRestaurant = {
   readonly name: string;
   readonly image: string;
   readonly deliveryFee: number;
-  readonly minDeliveryFee: number;
-  readonly maxDeliveryFee: number;
+  readonly minDeliveryTime: number;
+  readonly maxDeliveryTime: number;
   readonly rating?: number | null;
   readonly address: string;
   readonly lat: number;
@@ -309,6 +311,7 @@ type LazyRestaurant = {
   readonly Dishes: AsyncCollection<Dish>;
   readonly Baskets: AsyncCollection<Basket>;
   readonly Orders: AsyncCollection<Order>;
+  readonly adminSub: string;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
 }

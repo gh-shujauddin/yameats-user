@@ -1,10 +1,10 @@
 {
   "expo": {
     "name": "YamEatsUser",
-    "slug": "YamEatsUser",
+    "slug": "yameatsuser",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/yam-eats.png",
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/splash.png",
@@ -26,6 +26,12 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "ee49ab02-8cb3-477c-bc2e-399246ddd9a8"
+      }
+    },
+    "owner": "qadri.81"
   }
 }

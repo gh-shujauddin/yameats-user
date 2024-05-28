@@ -37,7 +37,10 @@ const RestaurantDetailsScreen = () => {
     setBasketRestaurant(null);
     DataStore.query(Restaurant, id).then(setRestaurant);
 
-    DataStore.query(Dish, (dish) => dish.restaurantID.eq(id)).then(setDishes);
+    DataStore.query(Dish, (dish) => 
+       dish.restaurantID.eq(id)
+    ).then(setDishes);
+    console.log("id", id);
   }, []);
 
   useEffect(() => {

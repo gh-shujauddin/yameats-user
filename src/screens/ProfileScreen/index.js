@@ -28,8 +28,12 @@ const Profile = () => {
     dbUser?.address ? dbUser?.address : ""
   );
 
-  const [lat, setLat] = useState(dbUser?.lat ? dbUser?.lat + "" : "0");
-  const [lng, setLng] = useState(dbUser?.lng ? dbUser?.lng + "" : "0");
+  // const [lat, setLat] = useState(dbUser?.lat ? dbUser?.lat + "" : "0");
+  // const [lng, setLng] = useState(dbUser?.lng ? dbUser?.lng + "" : "0");
+
+
+  const [lat, setLat] = useState(28.6199298);
+  const [lng, setLng] = useState(77.201828);
 
   const onSave = async () => {
     if (dbUser) {

@@ -10,12 +10,16 @@ import { Foundation, FontAwesome5, MaterialIcons } from "@expo/vector-icons";
 import OrderDetails from "../screens/OrderDetails";
 import ProfileScreen from "../screens/ProfileScreen";
 import { useAuthContext } from "../contexts/AuthContext";
+import OrderDetailsNavigator from "./OrderDetailsNavigator";
+import { ActivityIndicator } from "react-native";
 
 const Stack = createNativeStackNavigator();
 
 const RootNavigator = () => {
-  const { dbUser } = useAuthContext();
-
+  const { dbUser, loading } = useAuthContext();
+  if (loading) {
+    return <ActivityIndicator size={"large"} style={{ flex: 1 }} />;
+  }
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       {dbUser ? (
@@ -47,7 +51,7 @@ const HomeTabs = () => {
         }}
       />
       <Tab.Screen
-        name="Orders"
+        name="OrdersTab"
         component={OrderStackNavigator}
         options={{
           tabBarIcon: ({ color }) => (
@@ -90,8 +94,8 @@ const OrderStack = createNativeStackNavigator();
 const OrderStackNavigator = () => {
   return (
     <OrderStack.Navigator>
-      <OrderStack.Screen name="Your Orders" component={OrderScreen} />
-      <OrderStack.Screen name="Order" component={OrderDetails} />
+      <OrderStack.Screen name="Orders" component={OrderScreen} />
+      <OrderStack.Screen name="Order" component={OrderDetailsNavigator} />
     </OrderStack.Navigator>
   );
 };
