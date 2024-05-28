@@ -9,6 +9,13 @@ Welcome to the Yam Eats App! This project is a mobile application built with Rea
 - **Order Placement**: Users can place orders directly from the app.
 - **Live Order Tracking**: Users can track their orders in real-time on a map.
 
+
+Restaurant | Details | Orders | Track order
+--- | --- | --- |--- 
+![](https://github.com/gh-shujauddin/public-images/assets/73093103/5f10c6ef-5027-479b-ba67-f55ecd28cfbe)  | ![](https://github.com/gh-shujauddin/yameats-user/assets/73093103/68f13207-9a09-4c2f-87a2-abbaec74f2ce) | ![](https://github.com/gh-shujauddin/yameats-user/assets/73093103/9b6533e2-b8e5-4091-a45d-faeeff481eda) | ![](https://github.com/gh-shujauddin/yameats-user/assets/73093103/2a614591-2b15-4b98-9aef-316717b830f9)
+
+<br />
+
 ## Getting Started
 
 ### Prerequisites
