@@ -23,53 +23,51 @@ Before you begin, ensure you have met the following requirements:
 
 1. Clone the repository:
     
-```sh
+```
     git clone https://github.com/gh-shujauddin/yam-eats-app.git
-  ```
-6c0df167-66d3-402e-bc88-2595b810e8d1
+```
 
 2. Navigate to the project directory:
     
-```sh
+```
     cd yam-eats-app
-    ```
+```
 
 3. Install the dependencies:
     
-```sh
+```
     npm install
-    ```
+```
 
 
 ### Configuration
 
 1. Initialize AWS Amplify in your project:
     
-```sh
+```
     amplify init
-    ```
-e6305856-94d0-4008-ba0e-43c29b7fd7dd
+```
 
 2. Add the necessary Amplify categories (e.g., Auth, API, Storage):
     
-```sh
+```
     amplify add auth
     amplify add api
     amplify add storage
-    ```
+```
 3. Push the configuration to AWS:
-    ```sh
+    ```
     amplify push
     ```
 
 ### Running the Application
 
 1. Start the React Native development server:
-    ```sh
+    ```
     npm start
     ```
 2. Run the app on your emulator or physical device:
-    ```sh
+    ```
     npm run android   # For Android
     npm run ios       # For iOS
     ```
